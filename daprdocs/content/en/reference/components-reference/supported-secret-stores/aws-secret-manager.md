@@ -40,11 +40,11 @@ The above example uses secrets as plain strings. It is recommended to use a loca
 | Field              | Required | Details                                                                 | Example             |
 |--------------------|:--------:|-------------------------------------------------------------------------|---------------------|
 | region             | Y        | The specific AWS region the AWS Secrets Manager instance is deployed in | `"us-east-1"`       |
-| accessKey          | Y        | The AWS Access Key to access this resource                              | `"key"`             |
-| secretKey          | Y        | The AWS Secret Access Key to access this resource                       | `"secretAccessKey"` |
+| accessKey          | Y (but see note below)       | The AWS Access Key to access this resource                              | `"key"`             |
+| secretKey          | Y (but see note below)       | The AWS Secret Access Key to access this resource                       | `"secretAccessKey"` |
 | sessionToken       | N        | The AWS session token to use                                            | `"sessionToken"`    |
 
-{{% alert title="Important" color="warning" %}}
+{{% alert title="Important note for EKS users" color="warning" %}}
 When running the Dapr sidecar (daprd) with your application on EKS (AWS Kubernetes), if you're using a node/pod that has already been attached to an IAM policy defining access to AWS resources, you **must not** provide AWS access-key, secret-key, and tokens in the definition of the component spec you're using.  
 {{% /alert %}}
 
